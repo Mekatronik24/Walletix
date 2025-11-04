@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Walletix · Ahorra y gana</title>
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --primary:#0ea5e9;
+      --green:#22c55e;
+      --page:#0d2338;
+      --ink:#e6eef7;
+      --nav-pill:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.10);
+      --shadow:0 10px 30px rgba(2,8,23,.28);
+      --radius:18px;
+      --maxw:1180px;
+    }
+    *,*::before,*::after{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0; background:var(--page); color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ display:block; max-width:100%; }
+    :focus-visible{ outline:3px solid var(--primary); outline-offset:2px; border-radius:10px; }
+
+    .container{ max-width:var(--maxw); margin-inline:auto; padding:clamp(16px,2vw,28px); }
+    .grid{ display:grid; gap:clamp(16px,2vw,28px); }
+    .grid-2{ grid-template-columns:1.1fr .9fr; align-items:center; }
+    @media (max-width:980px){ .grid-2{ grid-template-columns:1fr; } }
+    .stack{ display:grid; gap:clamp(12px,1.6vw,22px); }
+
+    /* NAV */
+    header{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); }
+    .nav{ background:color-mix(in srgb, var(--page) 92%, transparent); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav__bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand{ font-weight:900; letter-spacing:.04em; color:#fff; }
+    nav ul{ list-style:none; display:flex; gap:clamp(8px,1.5vw,14px); margin:0; padding:0; align-items:center; }
+    .pill{ padding:.55rem .9rem; background:var(--nav-pill); border:1px solid var(--border); border-radius:999px; font-weight:600; color:#dbe6f4; position:relative; }
+    .pill.is-active::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:-7px; width:42%; height:3px; border-radius:8px; background:#fff; opacity:.9; }
+
+    /* HERO */
+    .hero__wrap{ padding-block:clamp(40px,8vw,110px); }
+    .hero h1{ font-size:clamp(36px,5vw,64px); line-height:1.05; margin:0; font-weight:900; }
+    .hero h1 em{ font-style:italic; text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:.18em; }
+    .hero h1 .win{
+      background:linear-gradient(180deg, var(--green), #86efac);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      text-shadow:0 6px 22px rgba(34,197,94,.35); font-style:italic;
+    }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem; padding:.95rem 1.15rem; font-weight:700; border-radius:999px; border:1px solid transparent; box-shadow:var(--shadow); cursor:pointer; background:#fff; color:#0f172a; }
+    .muted{ color:#ffffff; opacity:1; }
+
+    /* Logo sin círculo */
+    .hero__art{ display:grid; place-items:center; }
+    .logo-circle{ display:grid; place-items:center; background:transparent; border:0; box-shadow:none; width:auto; overflow:visible; }
+    .logo-circle .logo-img{ width:clamp(220px,32vw,300px); height:auto; object-fit:contain; display:block; }
+    .walletix-word{ margin-top:18px; font-size:clamp(18px,2.4vw,28px); font-weight:900; letter-spacing:.08em; color:#fff; text-align:center; }
+
+    /* ¿Quiénes somos? */
+    .about{ padding-block:clamp(40px,8vw,100px); }
+    .about__title{ font-size:clamp(32px,5vw,56px); line-height:1.08; margin:0 0 8px; font-weight:900; }
+    .about__text{ color:#e6eef7; max-width:65ch; }
+    .about__art{ display:grid; place-items:center; }
+    .about__img{ width:clamp(220px,30vw,340px); height:auto; object-fit:contain; display:block; }
+
+    footer{ padding:36px 0; color:rgba(255,255,255,.7); border-top:1px solid rgba(255,255,255,.08); }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav__bar">
+      <div class="brand">WALLETIX</div>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a class="pill is-active" href="index.html">Inicio</a></li>
+          <li><a class="pill" href="funciones.html">Funciones</a></li>
+          <li><a class="pill" href="#about">Quiénes somos</a></li>
+          <li><a class="pill" href="registro.html">Regístrate</a></li>
+          <li><a class="pill" href="login.html">Iniciar Sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio" role="banner">
+    <div class="container hero__wrap grid grid-2">
+      <div class="stack">
+        <h1>
+          EMPIEZA A <em>AHORRAR</em>,<br/>
+          EMPIEZA A <span class="win">GANAR</span>
+        </h1>
+        <div class="hero__cta">
+          <a class="btn" href="registro.html">Regístrate</a>
+        </div>
+        <p class="muted">
+          En un mundo donde cada gasto cuenta, tener control de tus finanzas nunca fue tan importante.
+          Walletix está diseñado para ayudarte a organizar tus ingresos, controlar tus egresos y alcanzar
+          tus metas de ahorro, sin importar si eres estudiante dando tus primeros pasos o un profesional
+          en crecimiento.
+        </p>
+      </div>
+
+      <div class="hero__art">
+        <figure>
+          <div class="logo-circle">
+            <img class="logo-img" src="./WALLETIX.png" alt="Logo de Walletix">
+          </div>
+          <figcaption class="walletix-word">WALLETIX</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ¿Quiénes somos? -->
+  <section id="about" class="about">
+    <div class="container grid grid-2">
+      <div class="stack">
+        <h2 class="about__title">¿Quiénes somos?</h2>
+        <p class="about__text">
+          Somos Walletix, un startup creado por estudiantes de Ingeniería de Sistemas y Software de la UPC.
+          Nacemos con el propósito de mejorar la educación financiera de jóvenes peruanos de 18 a 30 años,
+          ofreciéndoles una herramienta simple, accesible y adaptada a sus hábitos digitales. Nuestra app
+          ayuda a organizar ingresos y gastos, controlar los “gastos hormiga”, establecer metas de ahorro y
+          recibir recomendaciones personalizadas, fomentando decisiones financieras responsables y sostenibles.
+        </p>
+      </div>
+      <div class="about__art">
+        <img class="about__img" src="./WALLETIX.png" alt="Logo de Walletix">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Walletix. Todos los derechos reservados.</div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
