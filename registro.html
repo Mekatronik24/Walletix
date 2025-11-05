@@ -22,7 +22,7 @@
     img{ display:block; max-width:100%; }
     :focus-visible{ outline:3px solid var(--primary); outline-offset:2px; border-radius:10px; }
 
-    /* NAV */
+    
     header{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); }
     .nav{ background:color-mix(in srgb, var(--page) 92%, transparent); border-bottom:1px solid rgba(255,255,255,.06); }
     .nav__bar{ max-width:var(--maxw); margin:auto; padding:clamp(14px,2vw,20px); display:flex; align-items:center; justify-content:space-between; gap:16px; }
@@ -31,7 +31,7 @@
     .pill{ padding:.55rem .9rem; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.10); border-radius:999px; font-weight:600; color:#dbe6f4; position:relative; }
     .pill.is-active::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:-7px; width:42%; height:3px; border-radius:8px; background:#fff; opacity:.9; }
 
-    /* LAYOUT AUTH */
+    
     .auth{ max-width:var(--maxw); margin:auto; padding:clamp(18px,3vw,28px); }
     .auth-card{
       display:grid; grid-template-columns:1fr 1.2fr; gap:0;
@@ -40,7 +40,7 @@
     }
     @media (max-width:980px){ .auth-card{ grid-template-columns:1fr; } }
 
-    /* Aside (oscuro) */
+  
     .auth-aside{ background:var(--page); padding:clamp(24px,4vw,40px); display:grid; place-items:center; }
     .aside-stack{ display:grid; gap:clamp(18px,2vw,28px); place-items:center; text-align:center; }
     .logo-circle{
@@ -56,7 +56,7 @@
       font-style:italic;
     }
 
-    /* Formulario */
+  
     .auth-form{ padding:clamp(20px,4vw,44px); }
     .auth-form h1{ margin:0 0 14px; font-size:clamp(22px,2.6vw,28px); }
     .form-grid{ display:grid; gap:14px; }
@@ -81,7 +81,7 @@
   </style>
 </head>
 <body>
-  <!-- NAV -->
+
   <header class="nav">
     <div class="nav__bar">
       <div class="brand">WALLETIX</div>
@@ -96,10 +96,10 @@
     </div>
   </header>
 
-  <!-- CARD Registro -->
+  
   <main class="auth">
     <section class="auth-card" aria-labelledby="titulo-registro">
-      <!-- Aside oscuro con logo y lema -->
+      
       <aside class="auth-aside">
         <div class="aside-stack">
           <div class="logo-circle" aria-hidden="true">
@@ -109,7 +109,7 @@
         </div>
       </aside>
 
-      <!-- Formulario -->
+      
       <div class="auth-form">
         <h1 id="titulo-registro">Registro de usuario</h1>
         <form class="form-grid" action="#" method="post" autocomplete="on" novalidate>
@@ -177,3 +177,4 @@
   </script>
 </body>
 </html>
+
