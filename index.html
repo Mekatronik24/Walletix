@@ -35,7 +35,7 @@
     @media (max-width:980px){ .grid-2{ grid-template-columns:1fr; } }
     .stack{ display:grid; gap:clamp(12px,1.6vw,22px); }
 
-    /* NAV */
+   
     header{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); }
     .nav{ background:color-mix(in srgb, var(--page) 92%, transparent); border-bottom:1px solid rgba(255,255,255,.06); }
     .nav__bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
@@ -44,7 +44,7 @@
     .pill{ padding:.55rem .9rem; background:var(--nav-pill); border:1px solid var(--border); border-radius:999px; font-weight:600; color:#dbe6f4; position:relative; }
     .pill.is-active::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:-7px; width:42%; height:3px; border-radius:8px; background:#fff; opacity:.9; }
 
-    /* HERO */
+    
     .hero__wrap{ padding-block:clamp(40px,8vw,110px); }
     .hero h1{ font-size:clamp(36px,5vw,64px); line-height:1.05; margin:0; font-weight:900; }
     .hero h1 em{ font-style:italic; text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:.18em; }
@@ -56,13 +56,13 @@
     .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem; padding:.95rem 1.15rem; font-weight:700; border-radius:999px; border:1px solid transparent; box-shadow:var(--shadow); cursor:pointer; background:#fff; color:#0f172a; }
     .muted{ color:#ffffff; opacity:1; }
 
-    /* Logo sin círculo */
+    
     .hero__art{ display:grid; place-items:center; }
     .logo-circle{ display:grid; place-items:center; background:transparent; border:0; box-shadow:none; width:auto; overflow:visible; }
     .logo-circle .logo-img{ width:clamp(220px,32vw,300px); height:auto; object-fit:contain; display:block; }
     .walletix-word{ margin-top:18px; font-size:clamp(18px,2.4vw,28px); font-weight:900; letter-spacing:.08em; color:#fff; text-align:center; }
 
-    /* ¿Quiénes somos? */
+   
     .about{ padding-block:clamp(40px,8vw,100px); }
     .about__title{ font-size:clamp(32px,5vw,56px); line-height:1.08; margin:0 0 8px; font-weight:900; }
     .about__text{ color:#e6eef7; max-width:65ch; }
@@ -73,7 +73,7 @@
   </style>
 </head>
 <body>
-  <!-- NAV -->
+  
   <header class="nav">
     <div class="container nav__bar">
       <div class="brand">WALLETIX</div>
@@ -89,7 +89,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+
   <section class="hero" id="inicio" role="banner">
     <div class="container hero__wrap grid grid-2">
       <div class="stack">
@@ -119,7 +119,7 @@
     </div>
   </section>
 
-  <!-- ¿Quiénes somos? -->
+  
   <section id="about" class="about">
     <div class="container grid grid-2">
       <div class="stack">
@@ -145,3 +145,4 @@
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
