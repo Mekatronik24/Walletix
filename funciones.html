@@ -11,20 +11,19 @@
       --green:#22c55e;
       --page:#0d2338;
       --ink:#e6eef7;
-      --card:#ffffff;
       --border:rgba(255,255,255,.10);
+      --card:#ffffff;
+      --ink-dark:#0f172a;
       --shadow:0 12px 32px rgba(2,8,23,.30);
       --radius:18px;
       --maxw:1180px;
-      --ink-dark:#0f172a;
     }
-
     *,*::before,*::after{ box-sizing:border-box; }
     html,body{ height:100%; }
     html{ scroll-behavior:smooth; }
     body{
       margin:0; background:var(--page); color:var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
       line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
     a{ color:inherit; text-decoration:none; }
@@ -48,8 +47,9 @@
 
     
     .card{
-      background:var(--card); color:var(--ink-dark); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:clamp(16px,2vw,22px); border:1px solid rgba(15,23,42,.06);
+      background:var(--card); color:var(--ink-dark);
+      border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:clamp(16px,2vw,22px); border:1px solid rgba(15,23,42,.06);
     }
     .card h3{ margin-top:0; margin-bottom:.35rem; font-size:clamp(18px,1.6vw,22px); }
 
@@ -59,7 +59,7 @@
     .slides{ display:flex; width:100%; transform:translateX(0%); transition:transform .5s ease; }
     .slide{ min-width:100%; }
     .slide .grid{ display:grid; gap:clamp(18px,2vw,24px); grid-template-columns:1fr 1fr; }
-    .slide .span-2{ grid-column:1 / -1; }
+    .slide .span-2{ grid-column:1/-1; }
     @media (max-width:980px){ .slide .grid{ grid-template-columns:1fr; } }
 
     .nav-btn{
@@ -67,29 +67,23 @@
       width:44px; height:44px; border-radius:50%;
       border:1px solid var(--border); background:#ffffff; color:#0f172a;
       display:grid; place-items:center; box-shadow:0 10px 24px rgba(2,8,23,.25);
-      cursor:pointer; z-index:5;   /* ← asegura que quede por encima de las tarjetas */
+      cursor:pointer; z-index:5;
     }
-    .nav-btn[disabled]{ opacity:.45; cursor:not-allowed; }
-   
+    
     .prev{ left:-28px; }
     .next{ right:-28px; }
-    @media (max-width:980px){
-      .prev{ left:6px; }
-      .next{ right:6px; }
-    }
+    @media (max-width:980px){ .prev{ left:6px; } .next{ right:6px; } }
+    .nav-btn[disabled]{ opacity:.45; cursor:not-allowed; }
 
     .dots{ display:flex; gap:10px; justify-content:center; margin-top:16px; }
-    .dot{
-      width:10px; height:10px; border-radius:999px; border:1px solid var(--border);
-      background:rgba(255,255,255,.3);
-    }
+    .dot{ width:10px; height:10px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.3); }
     .dot.is-active{ background:#fff; }
 
     
     .cta{ text-align:center; margin-top:clamp(36px,6vw,72px); }
     .cta h2{ font-size:clamp(28px,4.8vw,48px); margin:0; font-weight:900; }
     .cta em{ font-style:italic; text-decoration:underline; text-underline-offset:.2em; text-decoration-thickness:3px; }
-    .cta .win{
+    .win{
       background:linear-gradient(180deg, var(--green), #86efac);
       -webkit-background-clip:text; background-clip:text; color:transparent;
       text-shadow:0 6px 22px rgba(34,197,94,.35); font-style:italic;
@@ -99,7 +93,7 @@
   </style>
 </head>
 <body>
- 
+  
   <header class="nav">
     <div class="container nav__bar">
       <div class="brand">WALLETIX</div>
@@ -107,7 +101,8 @@
         <ul>
           <li><a class="pill" href="index.html">Inicio</a></li>
           <li><a class="pill is-active" href="funciones.html">Funciones</a></li>
-          <li><a class="pill" href="registro.html">Regístrate</a></li>
+          <li><a class="pill" href="#">Beneficios</a></li>
+          <li><a class="pill" href="comienza.html">Comienza</a></li>
           <li><a class="pill" href="login.html">Iniciar Sesión</a></li>
         </ul>
       </nav>
@@ -128,7 +123,7 @@
         <button class="nav-btn prev" aria-label="Anterior" disabled>‹</button>
 
         <div class="track">
-          <div class="slides" id="slides" style="transform:translateX(0%)">
+          <div class="slides" id="slides">
             
             <div class="slide" role="group" aria-label="Página 1 de 2">
               <div class="grid">
@@ -147,7 +142,7 @@
               </div>
             </div>
 
-           
+            
             <div class="slide" role="group" aria-label="Página 2 de 2">
               <div class="grid">
                 <article class="card">
@@ -177,7 +172,7 @@
     </div>
   </section>
 
- 
+  
   <section class="cta">
     <div class="container">
       <h2>EMPIEZA A <em>AHORRAR</em>, EMPIEZA A <span class="win">GANAR</span></h2>
@@ -189,7 +184,6 @@
   </footer>
 
   <script>
-    
     document.getElementById('y').textContent = new Date().getFullYear();
 
     
@@ -212,7 +206,7 @@
       dots.forEach(d => d.addEventListener('click', () => { index = +d.dataset.to; update(); }));
 
       
-      document.addEventListener('keydown', (e) => {
+      document.addEventListener('keydown', e => {
         if (e.key === 'ArrowRight') next.click();
         if (e.key === 'ArrowLeft')  prev.click();
       });
@@ -233,4 +227,3 @@
   </script>
 </body>
 </html>
-
