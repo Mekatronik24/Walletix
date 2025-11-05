@@ -33,7 +33,7 @@
 
     .container{ max-width:var(--maxw); margin-inline:auto; padding:clamp(16px,2vw,28px); }
 
-    /* NAV */
+    
     header{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); }
     .nav{ background:color-mix(in srgb, var(--page) 92%, transparent); border-bottom:1px solid rgba(255,255,255,.06); }
     .nav__bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
@@ -42,18 +42,18 @@
     .pill{ padding:.55rem .9rem; background:rgba(255,255,255,.08); border:1px solid var(--border); border-radius:999px; font-weight:600; color:#dbe6f4; position:relative; }
     .pill.is-active::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:-7px; width:42%; height:3px; border-radius:8px; background:#fff; opacity:.9; }
 
-    /* Hero */
+    
     .hero{ padding-block:clamp(36px,8vw,96px); }
     .hero h1{ font-size:clamp(32px,5vw,56px); line-height:1.08; margin:0; font-weight:900; }
 
-    /* Cards */
+    
     .card{
       background:var(--card); color:var(--ink-dark); border-radius:var(--radius);
       box-shadow:var(--shadow); padding:clamp(16px,2vw,22px); border:1px solid rgba(15,23,42,.06);
     }
     .card h3{ margin-top:0; margin-bottom:.35rem; font-size:clamp(18px,1.6vw,22px); }
 
-    /* Slider */
+    
     .slider{ position:relative; }
     .track{ display:flex; width:100%; overflow:hidden; border-radius:calc(var(--radius) + 6px); }
     .slides{ display:flex; width:100%; transform:translateX(0%); transition:transform .5s ease; }
@@ -70,7 +70,7 @@
       cursor:pointer; z-index:5;   /* ← asegura que quede por encima de las tarjetas */
     }
     .nav-btn[disabled]{ opacity:.45; cursor:not-allowed; }
-    /* Más separadas del contenido */
+   
     .prev{ left:-28px; }
     .next{ right:-28px; }
     @media (max-width:980px){
@@ -85,7 +85,7 @@
     }
     .dot.is-active{ background:#fff; }
 
-    /* CTA */
+    
     .cta{ text-align:center; margin-top:clamp(36px,6vw,72px); }
     .cta h2{ font-size:clamp(28px,4.8vw,48px); margin:0; font-weight:900; }
     .cta em{ font-style:italic; text-decoration:underline; text-underline-offset:.2em; text-decoration-thickness:3px; }
@@ -99,7 +99,7 @@
   </style>
 </head>
 <body>
-  <!-- NAV -->
+ 
   <header class="nav">
     <div class="container nav__bar">
       <div class="brand">WALLETIX</div>
@@ -114,14 +114,14 @@
     </div>
   </header>
 
-  <!-- TÍTULO -->
+  
   <section class="hero">
     <div class="container">
       <h1>Nuestras funciones principales</h1>
     </div>
   </section>
 
-  <!-- SLIDER -->
+  
   <section>
     <div class="container">
       <div class="slider" aria-roledescription="carousel" aria-label="Funciones de Walletix">
@@ -129,7 +129,7 @@
 
         <div class="track">
           <div class="slides" id="slides" style="transform:translateX(0%)">
-            <!-- Slide 1 -->
+            
             <div class="slide" role="group" aria-label="Página 1 de 2">
               <div class="grid">
                 <article class="card">
@@ -147,7 +147,7 @@
               </div>
             </div>
 
-            <!-- Slide 2 -->
+           
             <div class="slide" role="group" aria-label="Página 2 de 2">
               <div class="grid">
                 <article class="card">
@@ -177,7 +177,7 @@
     </div>
   </section>
 
-  <!-- CTA -->
+ 
   <section class="cta">
     <div class="container">
       <h2>EMPIEZA A <em>AHORRAR</em>, EMPIEZA A <span class="win">GANAR</span></h2>
@@ -189,10 +189,10 @@
   </footer>
 
   <script>
-    // Año
+    
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Slider
+    
     (function () {
       const slides = document.getElementById('slides');
       const prev = document.querySelector('.nav-btn.prev');
@@ -211,13 +211,13 @@
       next.addEventListener('click', () => { if (index < dots.length - 1) { index++; update(); }});
       dots.forEach(d => d.addEventListener('click', () => { index = +d.dataset.to; update(); }));
 
-      // Teclado
+      
       document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') next.click();
         if (e.key === 'ArrowLeft')  prev.click();
       });
 
-      // Swipe móvil
+      
       let startX = null;
       slides.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
       slides.addEventListener('touchend', e => {
@@ -233,3 +233,4 @@
   </script>
 </body>
 </html>
+
